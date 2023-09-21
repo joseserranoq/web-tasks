@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <label for="tarea"></label>
+    <input type="text" id="tarea" placeholder="Ingrese una tarea" onsubmit="agregarTarea()">
+    <button onclick="agregarTarea()">Agregar</button>
+    <ul id="miLista">
+        <li id="1">Elemento 1
+            <input  type="checkbox" class="check" value="Done" onchange="contador()">
+            <button class="Delete">X</button>
+        </li>
+      </ul>
+
+    <br>
+    <p id="contador">Tareas pendientes: 0</p>
+</body>
+</html>
