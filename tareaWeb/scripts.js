@@ -2,17 +2,24 @@ function agregarTarea() {
     const tarea = document.getElementById("tarea")
     const lista = document.getElementById("miLista");
     const nuevoElemento = document.createElement("li");
-    nuevoElemento.id = lista.children.length + 1;
+    nuevoElemento.id = `li${lista.children.length + 1}` ;
+    //nuevoElemento.textContent = tarea.value; create text node
     //agrego el checkbox
     const checkbox = document.createElement("input");
-    nuevoElemento.textContent = tarea.value ;
     checkbox.type = "checkbox";
-    checkbox.onchange = contador();
+    checkbox.className = "check";
     nuevoElemento.appendChild(checkbox);
+
+    //agrego el texto
+    const texto = document.createTextNode(tarea.value);
+    nuevoElemento.appendChild(texto);
+
     //agrega el boton
     const boton = document.createElement("button");
+    boton.className = "delete";
     boton.textContent = "X";
     nuevoElemento.appendChild(boton);
+
 
     tarea.value = "";
     lista.appendChild(nuevoElemento);
@@ -22,9 +29,13 @@ function agregarTarea() {
 function contador(){
     const lista = document.getElementById("miLista");
     const contador = document.getElementById("contador");
-    console.log(lista.children);
+    var checks = 0;
+    //console.log(lista.children)
     for (const i in lista.children){
-        console.log(i.children[0].checked);
+        // if(i != null){
+        //     console.log(i.children[0].checked)};
+        console.log(lista.children[i].DOCUMENT_NODE);
+        
     }
     contador.textContent = "Tareas pendientes: "+ lista.children.length;
 }
