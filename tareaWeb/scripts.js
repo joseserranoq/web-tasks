@@ -14,6 +14,7 @@ function agregarTarea() {
         let lista = document.getElementById("miLista");
         let slice = event.target.id.slice(5); //obtiene el numero del boton
         lista.removeChild(document.querySelector(`#li${slice}`));
+        actualizarId(); //se setean los nuevos id de acuerdo a su posicion en la lista, ademas de setear el atributo for del label
         contador();
         //console.log('Ha sido removido la tarea');
     });
@@ -56,3 +57,13 @@ function contador(){
     contador.textContent = "Tareas pendientes: "+ checks;
 }
 
+function actualizarId(){
+    const lista = document.getElementById("miLista");
+    for (var i = 0; i < lista.children.length; i++){
+        lista.children[i].id = `li${i+1}`;
+        lista.children[i].children[0].id = `boton${i+1}`;
+        lista.children[i].children[1].id = `check${i+1}`;
+        lista.children[i].children[2].id = `label${i+1}`;
+        lista.children[i].children[2].setAttribute("for", `check${i+1}`);
+    }
+}

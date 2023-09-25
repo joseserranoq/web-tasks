@@ -14,6 +14,10 @@ body{
     position: relative;
     right: 0rem;
 }
+.check:checked + label{
+    text-decoration: line-through;
+    color: grey;
+}
 .delete{
     font-size: 0.5rem;
     height: 1rem;
